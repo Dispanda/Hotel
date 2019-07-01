@@ -1,0 +1,43 @@
+
+$qur="insert into addresses(address_id,
+    house_num,
+    street_num ,
+    block_ ,
+    area_name ,
+    town_city,
+    country) values ('$address_id','$house','$block','$streetnum','$areaName','$town','$country');";
+
+$qur="insert into staff values('$id',2,'$name','$gender','$CNIC',0,'$phno');";
+
+
+$qur="insert into staff_addresses values('$id','$address_id');";
+
+$qur="insert into login values ('$id','2','$pass')";
+if(mysql_query($qur,$conn))
+{
+    header('Refresh:2; url=addmanager.php');
+}
+else 
+    echo "login";
+
+echo "$phno";
+?>
+
+
+<?php
+
+$host="localhost";
+$user="root";
+$pass="";
+
+mysql_connect("localhost", "root", "")or die("Cannot connect to SQL."); 
+mysql_select_db('hotel');
+$query=("SELECT * FROM Booking");
+$result=mysql_query($query);
+$row=mysql_fetch_array($result);
+$id=$row[0];
+
+mysql_query("DELETE from booking WHERE b_id='$id'");
+
+header("location:managerpannel.php");
+?>

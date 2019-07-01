@@ -1,0 +1,19 @@
+<?php
+$conn=mysql_connect("localhost","root");
+if(!$conn)
+{}
+else
+{}
+$selection=mysql_select_db('staff',$conn);
+$id=$_POST['Username'];
+$names=$_POST['Password'];
+
+$qur="insert into admin values('$id','$names');";
+
+if(!mysql_query($qur,$conn))
+{
+echo mysql_error();
+}
+else
+echo "Record Inserted";
+?>

@@ -1,0 +1,26 @@
+<?php
+$conn=mysql_connect("localhost","root");
+if(!$conn)
+{}
+else
+{}
+$id=$_POST['Username'];
+$names=$_POST['Password'];
+
+
+$sql = 'SELECT job_type_code,job_type_name FROM staff_job_type';
+   mysql_select_db('hotel');
+   $retval = mysql_query( $sql, $conn );
+   
+   if(! $retval ) {
+      die('Could not get data: ' . mysql_error());
+   }
+   
+   while($row = mysql_fetch_array($retval, MYSQL_ASSOC)) {
+      echo "Job Type Code :{$row['job_type_code']}  <br> ".
+         "Job Name : {$row['job_type_name']} <br> ".
+         "--------------------------------<br>";
+   }
+   
+   echo "Fetched data successfully\n";
+   

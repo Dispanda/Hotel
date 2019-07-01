@@ -1,0 +1,27 @@
+Admin
+1 
+12345
+
+Manager
+2
+123456
+
+Receptionist 
+4 
+123458
+
+5
+123459
+
+
+
+create table booking (
+    b_id int,
+    room_id int,
+    s_id int,
+    start_date date,
+    end_date date,
+    charges float,
+    primary key (b_id , room_id),
+    foreign key (s_id) references staff (s_id)
+);

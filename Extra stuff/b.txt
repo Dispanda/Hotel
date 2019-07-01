@@ -1,0 +1,21 @@
+
+$sql = "SELECT * FROM Admin where admin_id='$Uname'";
+$result = $conn->query($sql);
+ 
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+					if(!strcmp($Pass,$row["password"])){
+						echo "You are Logged In ".$row["admin_id"]."<br>";				
+						header('Refresh:2; url=adminwork.php');
+						}
+						else{
+						header('Refresh:2; url=admin_signin.php');
+						echo "Invalid Staff ID or Password... Try Again";	
+						}
+    }
+} 
+else {
+    echo "0 results";
+}

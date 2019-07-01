@@ -1,0 +1,12 @@
+
+$qu="insert into staff values('$id','2','$name','$gender','$CNIC','0,'$phno');";
+if(!mysql_query($qu,$conn))
+{
+    echo "staff.";
+}
+$qur="insert into staff_addresses values('$id','$address_id');";
+if(!mysql_query($qur,$conn))
+{
+    echo "sadress.";
+}
+$qur="insert into login values ('$id','2','$pass')";
